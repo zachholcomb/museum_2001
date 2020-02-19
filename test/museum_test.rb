@@ -47,26 +47,22 @@ class MuseumTest < Minitest::Test
 
     recommended_exhibits1 = [@gems_and_minerals, @dead_sea_scrolls]
     assert_equal recommended_exhibits1, @dmns.recommend_exhibits(@patron_1)
-
     assert_equal [@dead_sea_scrolls], @dmns.recommend_exhibits(@patron_2)
-
     assert_equal [@dead_sea_scrolls], @dmns.recommend_exhibits(@patron_3)
   end
+  def test_it_can_admit_patrons
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
 
+    assert_equal [@patron_1, @patron_2, @patron_3], @dmns.patrons
+  end
 end
 
 
 
-# pry(main)>
-# # => #<Patron:0x6666fb20114megan...>
-#
-# pry(main)>
-#
-# pry(main)> dmns.admit(patron_1)
-#
-# pry(main)> dmns.admit(patron_2)
-#
-# pry(main)> dmns.admit(patron_3)
+
+
 #
 # pry(main)> dmns.patrons
 # # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>]
