@@ -38,4 +38,11 @@ class Museum
     end
     exhibit_patrons
   end
+
+  def ticket_lottery_contestants(exhibit)
+    @exhibits.each do |exhibit|
+      exhibit.cost
+      require "pry"; binding.pry
+    end
+  end
 end

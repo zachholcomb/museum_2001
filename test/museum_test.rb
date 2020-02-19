@@ -81,13 +81,17 @@ class MuseumTest < Minitest::Test
     @dmns.admit(@patron_2)
     @dmns.admit(@patron_3)
 
-    assert_equal [@patron_1, @patron_3], @dmns.ticket_lottery_contestants
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+
+    assert_equal [@patron_1, @patron_3], @dmns.ticket_lottery_contestants(@dead_sea_scrolls)
   end
 end
 
 
 
-# pry(main)> dmns.ticket_lottery_contestants(dead_sea_scrolls)
+# pry(main)> dmns.ticket_lottery_contestants
 # # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x6666fb20114megan...>]
 #
 # pry(main)> dmns.draw_lottery_winner(dead_sea_scrolls)
