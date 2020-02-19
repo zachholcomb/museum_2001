@@ -50,6 +50,7 @@ class MuseumTest < Minitest::Test
     assert_equal [@dead_sea_scrolls], @dmns.recommend_exhibits(@patron_2)
     assert_equal [@dead_sea_scrolls], @dmns.recommend_exhibits(@patron_3)
   end
+
   def test_it_can_admit_patrons
     @dmns.admit(@patron_1)
     @dmns.admit(@patron_2)
@@ -57,16 +58,25 @@ class MuseumTest < Minitest::Test
 
     assert_equal [@patron_1, @patron_2, @patron_3], @dmns.patrons
   end
+
+  def test_it_can_get_patrons_by_exhibit
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+
+    test_hash = {
+      @gems_and_minerals => [@patron_1],
+      @dead_sea_scrolls => [@patron_1, @patron_2, @patron_3],
+      @imax => []
+    }
+    assert_equal test_hash, @dmns.patrons_by_exhibit_interest
+  end
 end
 
 
 
 
 
-#
-# pry(main)> dmns.patrons
-# # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>]
-#
 # #Patrons are added even if they don't have enough money for all/any exhibits.
 #
 # pry(main)> dmns.patrons_by_exhibit_interest

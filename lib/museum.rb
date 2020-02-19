@@ -18,4 +18,8 @@ class Museum
     end
     recommended.flatten
   end
+
+  def admit(new_patron)
+    @patrons << new_patron
+  end
 end
