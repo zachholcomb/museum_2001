@@ -18,12 +18,6 @@ class ExhibitTest < Minitest::Test
 end
 
 
-# pry(main)> exhibit.name
-# # => "Gems and Minerals"
-#
-# pry(main)> exhibit.cost
-# # => 0
-#
 # pry(main)> patron_1 = Patron.new("Bob", 20)
 # # => #<Patron:0x00007fcb13b5c7d8...>
 #
