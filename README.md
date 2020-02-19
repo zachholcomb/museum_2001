@@ -310,14 +310,6 @@ pry(main)> dmns.patrons_of_exhibits
 #   #<Exhibit:0x00007f9018a51248...> => [#<Patron:0x00007f90180e0948...>]
 # }
 
-
-pry(main)> dmns.patrons_of_exhibits
-# =>
-# {
-#   #<Exhibit:0x00007f9019879be0...> => [#<Patron:0x00007f9018048be8...>, <Patron:0x00007f90180e0948...>],
-#   #<Exhibit:0x00007f9018a596c8...> => [#<Patron:0x00007f901823c8a0...>],
-#   #<Exhibit:0x00007f9018a51248...> => [#<Patron:0x00007f90180e0948...>]
-# }
 pry(main)> dmns.revenue
 # => 35
 ```
