@@ -11,6 +11,7 @@ class MuseumTest < Minitest::Test
     @dead_sea_scrolls = Exhibit.new({name: "Dead Sea Scrolls", cost: 10})
     @imax = Exhibit.new({name: "IMAX",cost: 15})
     @patron_1 = Patron.new("Bob", 20)
+    @patron_1.add_interest("Gems and Minerals")
     @patron_1.add_interest("Dead Sea Scrolls")
     @patron_2 = Patron.new("Sally", 20)
     @patron_2.add_interest("IMAX")
@@ -37,6 +38,10 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_can_recomend_exhibits
+    @dmns.add_exhibit(@gems_and_minerals)
+    @dmns.add_exhibit(@dead_sea_scrolls)
+    @dmns.add_exhibit(@imax)
+
     recommended_exhibits1 = [@gems_and_minerals, @dead_sea_scrolls]
     assert_equal recommended_exhibits1, @dmns.recommend_exhibits(@patron_1)
 
