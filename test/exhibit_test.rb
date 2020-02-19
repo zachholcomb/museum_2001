@@ -18,7 +18,7 @@ class ExhibitTest < Minitest::Test
 end
 
 
-# pry(main)> patron_1 = Patron.new("Bob", 20)
+# pry(main)> 
 # # => #<Patron:0x00007fcb13b5c7d8...>
 #
 # pry(main)> patron_1.name
