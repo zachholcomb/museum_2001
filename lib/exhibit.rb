@@ -5,5 +5,4 @@ class Exhibit
     @name = exhibit_params[:name]
     @cost = exhibit_params[:cost]
   end
-  
 end

@@ -60,6 +60,10 @@ class MuseumTest < Minitest::Test
   end
 
   def test_it_can_get_patrons_by_exhibit
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
     @dmns.add_exhibit(@gems_and_minerals)
     @dmns.add_exhibit(@dead_sea_scrolls)
     @dmns.add_exhibit(@imax)
