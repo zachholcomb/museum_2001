@@ -75,22 +75,18 @@ class MuseumTest < Minitest::Test
     }
     assert_equal test_hash, @dmns.patrons_by_exhibit_interest
   end
+
+  def test_it_can_find_lottery_tickets_contestants
+    @dmns.admit(@patron_1)
+    @dmns.admit(@patron_2)
+    @dmns.admit(@patron_3)
+
+    assert_equal [@patron_1, @patron_3], @dmns.ticket_lottery_contestants
+  end
 end
 
 
 
-
-
-# #Patrons are added even if they don't have enough money for all/any exhibits.
-#
-# pry(main)> dmns.patrons_by_exhibit_interest
-# # =>
-# # {
-# #   #<Exhibit:0x00007fb202238618...> => [#<Patron:0x00007fb2011455b8...>],
-# #   #<Exhibit:0x00007fb202248748...> => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x00007fb20227f8b0...>, #<Patron:0x6666fb20114megan...>],
-# #   #<Exhibit:0x00007fb20225f8d0...> => []
-# # }
-#
 # pry(main)> dmns.ticket_lottery_contestants(dead_sea_scrolls)
 # # => [#<Patron:0x00007fb2011455b8...>, #<Patron:0x6666fb20114megan...>]
 #
